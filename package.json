@@ -1,0 +1,37 @@
+{
+	"name": "strict-import",
+	"version": "0.0.0",
+	"description": "Prevent `require` from searching upwards for required modules",
+	"license": "MIT",
+	"repository": "sindresorhus/strict-import",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"test": "xo && ava test/test.js"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"import",
+		"require",
+		"strict",
+		"prevent",
+		"block",
+		"module",
+		"modules",
+		"search",
+		"path"
+	],
+	"devDependencies": {
+		"ava": "*",
+		"execa": "^0.10.0",
+		"xo": "*"
+	}
+}
