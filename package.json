@@ -1,6 +1,6 @@
 {
 	"name": "strict-import",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "Prevent `require` from searching upwards for required modules",
 	"license": "MIT",
 	"repository": "sindresorhus/strict-import",
