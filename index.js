@@ -6,13 +6,9 @@ const getParentModuleDirectories = cwd => {
 	const ret = new Set();
 
 	let dir = cwd;
-	while (true) { // eslint-disable-line no-constant-condition
+	while (path.parse(dir).root !== dir) {
 		dir = path.dirname(dir);
 		ret.add(path.join(dir, 'node_modules'));
-
-		if (path.parse(dir).root === dir) {
-			break;
-		}
 	}
 
 	return ret;
