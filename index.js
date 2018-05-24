@@ -14,8 +14,12 @@ const getParentModuleDirectories = cwd => {
 	return ret;
 };
 
-module.exports = mod => {
+module.exports = (mod, options) => {
 	const cwd = path.dirname(mod.filename);
+
+	options = Object.assign({
+		_allowedModules: []
+	}, options);
 
 	// We specifically block the parent node module directories instead of just blocking
 	// everything except for the cwd, so we can support `npm link` modules
@@ -23,7 +27,13 @@ module.exports = mod => {
 
 	const {_nodeModulePaths} = Module;
 	Module._nodeModulePaths = from => {
-		return _nodeModulePaths(from).filter(modulePath => {
+		const paths = _nodeModulePaths(from);
+
+		if (options._allowedModules.some(x => from.endsWith(`/node_modules/${x}`))) {
+			return paths;
+		}
+
+		return paths.filter(modulePath => {
 			for (const blockedDirectory of blockedDirectories) {
 				if (modulePath.startsWith(blockedDirectory)) {
 					return false;
