@@ -1,4 +1,4 @@
-# strict-import [![Build Status](https://travis-ci.org/sindresorhus/strict-import.svg?branch=master)](https://travis-ci.org/sindresorhus/strict-import)
+# strict-import
 
 > Prevent `require` from searching upwards for required modules
 
